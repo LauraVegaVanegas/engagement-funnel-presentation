@@ -9,296 +9,332 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #0f0f0f;
-    color: #fff;
+    background: #f4f4f6;
+    color: #111;
     height: 100vh;
     overflow: hidden;
     user-select: none;
   }
 
-  /* ── SLIDE SYSTEM ── */
   .deck { width: 100vw; height: 100vh; position: relative; }
 
   .slide {
     position: absolute; inset: 0;
     display: flex; flex-direction: column;
-    padding: 64px 72px;
+    padding: 40px 56px;
     opacity: 0; pointer-events: none;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease;
   }
   .slide.active { opacity: 1; pointer-events: all; }
 
-  /* ── SLIDE TYPES ── */
-  .slide-cover {
-    background: #0f0f0f;
-    justify-content: center; align-items: flex-start;
-  }
-  .slide-section {
-    justify-content: center; align-items: flex-start;
-  }
-  .slide-content {
-    background: #141414;
-  }
-
   /* ── COVER ── */
-  .cover-eyebrow {
-    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #666; margin-bottom: 24px;
+  .slide-cover { background: #fff; justify-content: center; align-items: flex-start; }
+
+  .cover-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #999; margin-bottom: 20px; font-weight: 600; }
+  .cover-title { font-size: 76px; font-weight: 900; line-height: 1.02; color: #111; max-width: 900px; margin-bottom: 20px; }
+  .cover-title span { color: #2244dd; }
+  .cover-subtitle { font-size: 20px; color: #555; max-width: 640px; line-height: 1.6; margin-bottom: 36px; }
+  .cover-stages { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cover-pill { padding: 10px 24px; border-radius: 99px; font-size: 15px; font-weight: 700; }
+  .pill-awareness  { background: #2244dd; color: #fff; }
+  .pill-activation { background: #0a8a44; color: #fff; }
+  .pill-retention  { background: #bb6600; color: #fff; }
+  .pill-loyalty    { background: #8822cc; color: #fff; }
+
+  /* ── FRAMING ── */
+  .slide-framing { background: #fff; justify-content: center; }
+  .framing-quote {
+    font-size: 28px; font-weight: 400; color: #333; line-height: 1.75;
+    max-width: 820px; margin-bottom: 36px; padding-left: 24px;
+    border-left: 4px solid #2244dd;
   }
-  .cover-title {
-    font-size: 56px; font-weight: 700; line-height: 1.1;
-    color: #fff; max-width: 700px; margin-bottom: 20px;
-  }
-  .cover-title span { color: #4f9cf9; }
-  .cover-subtitle {
-    font-size: 18px; color: #888; max-width: 520px; line-height: 1.6;
-    margin-bottom: 40px;
-  }
-  .cover-stages {
-    display: flex; gap: 12px; flex-wrap: wrap;
-  }
-  .cover-pill {
-    padding: 8px 20px; border-radius: 99px; font-size: 13px;
-    font-weight: 500; letter-spacing: 0.04em;
-  }
-  .pill-awareness  { background: #1a3a5c; color: #7bc0fb; }
-  .pill-activation { background: #1e3d0a; color: #8fce3e; }
-  .pill-retention  { background: #3d2205; color: #f4a93b; }
-  .pill-loyalty    { background: #2a1f6a; color: #a89df0; }
+  .framing-quote em { color: #111; font-style: normal; font-weight: 800; }
+  .framing-bottom { font-size: 18px; color: #666; line-height: 1.75; max-width: 740px; }
+  .framing-bottom strong { color: #111; }
 
   /* ── SECTION DIVIDERS ── */
-  .section-awareness  { background: #0d1f33; }
-  .section-activation { background: #0f1f07; }
-  .section-retention  { background: #1f1005; }
-  .section-loyalty    { background: #16103a; }
+  .slide-section { justify-content: center; align-items: flex-start; }
 
-  .section-number {
-    font-size: 120px; font-weight: 800; line-height: 1;
-    opacity: 0.08; margin-bottom: -30px;
-  }
-  .section-label {
-    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .section-title { font-size: 52px; font-weight: 700; margin-bottom: 12px; }
-  .section-question { font-size: 20px; color: #aaa; margin-bottom: 8px; }
-  .section-goal {
-    display: inline-block; font-size: 13px; padding: 6px 16px;
-    border-radius: 99px; font-weight: 500; margin-top: 6px;
-  }
+  .section-awareness  { background: #eef1ff; }
+  .section-activation { background: #edfff5; }
+  .section-retention  { background: #fff8ee; }
+  .section-loyalty    { background: #f8eeff; }
 
-  .awareness  .section-label { color: #4f9cf9; }
-  .awareness  .section-title { color: #7bc0fb; }
-  .awareness  .section-goal  { background: #1a3a5c; color: #7bc0fb; }
+  .section-number { font-size: 130px; font-weight: 900; line-height: 1; opacity: 0.08; margin-bottom: -36px; letter-spacing: -4px; }
+  .section-label  { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
+  .section-title  { font-size: 64px; font-weight: 900; margin-bottom: 10px; }
+  .section-question { font-size: 22px; margin-bottom: 8px; }
+  .section-goal { display: inline-block; font-size: 13px; padding: 7px 18px; border-radius: 99px; font-weight: 700; margin-top: 4px; margin-bottom: 28px; }
+  .section-context { font-size: 18px; line-height: 1.8; max-width: 720px; border-left: 3px solid; padding-left: 20px; }
 
-  .activation .section-label { color: #8fce3e; }
-  .activation .section-title { color: #a8e05b; }
-  .activation .section-goal  { background: #1e3d0a; color: #8fce3e; }
+  .awareness  .section-number  { color: #2244dd; }
+  .awareness  .section-label   { color: #2244dd; }
+  .awareness  .section-title   { color: #1a33bb; }
+  .awareness  .section-question { color: #445; }
+  .awareness  .section-goal    { background: #2244dd; color: #fff; }
+  .awareness  .section-context { border-color: #2244dd; color: #334; }
+  .awareness  .section-context strong { color: #1a33bb; }
 
-  .retention  .section-label { color: #f4a93b; }
-  .retention  .section-title { color: #f8c06a; }
-  .retention  .section-goal  { background: #3d2205; color: #f4a93b; }
+  .activation .section-number  { color: #0a8a44; }
+  .activation .section-label   { color: #0a8a44; }
+  .activation .section-title   { color: #07723a; }
+  .activation .section-question { color: #344; }
+  .activation .section-goal    { background: #0a8a44; color: #fff; }
+  .activation .section-context { border-color: #0a8a44; color: #344; }
+  .activation .section-context strong { color: #07723a; }
 
-  .loyalty    .section-label { color: #a89df0; }
-  .loyalty    .section-title { color: #c3baff; }
-  .loyalty    .section-goal  { background: #2a1f6a; color: #a89df0; }
+  .retention  .section-number  { color: #bb6600; }
+  .retention  .section-label   { color: #bb6600; }
+  .retention  .section-title   { color: #995500; }
+  .retention  .section-question { color: #443; }
+  .retention  .section-goal    { background: #bb6600; color: #fff; }
+  .retention  .section-context { border-color: #bb6600; color: #443; }
+  .retention  .section-context strong { color: #995500; }
+
+  .loyalty    .section-number  { color: #8822cc; }
+  .loyalty    .section-label   { color: #8822cc; }
+  .loyalty    .section-title   { color: #6e1aaa; }
+  .loyalty    .section-question { color: #434; }
+  .loyalty    .section-goal    { background: #8822cc; color: #fff; }
+  .loyalty    .section-context { border-color: #8822cc; color: #434; }
+  .loyalty    .section-context strong { color: #6e1aaa; }
 
   /* ── CONTENT SLIDES ── */
-  .slide-header {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 32px;
-  }
-  .slide-tag {
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 99px; font-weight: 600;
-  }
-  .tag-awareness  { background: #1a3a5c; color: #7bc0fb; }
-  .tag-activation { background: #1e3d0a; color: #8fce3e; }
-  .tag-retention  { background: #3d2205; color: #f4a93b; }
-  .tag-loyalty    { background: #2a1f6a; color: #a89df0; }
+  .slide-content { background: #f4f4f6; }
 
-  .slide-title {
-    font-size: 28px; font-weight: 600; color: #f0f0f0;
-  }
+  .slide-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .slide-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 18px; border-radius: 99px; font-weight: 800; color: #fff; }
+  .tag-awareness  { background: #2244dd; }
+  .tag-activation { background: #0a8a44; }
+  .tag-retention  { background: #bb6600; }
+  .tag-loyalty    { background: #8822cc; }
+  .slide-title { font-size: 38px; font-weight: 900; color: #111; }
 
-  /* ── CARDS ── */
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; }
+  /* ── EXAMPLE CARDS ── */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; flex: 1; }
+
   .card {
-    background: #1c1c1c; border: 1px solid #2a2a2a;
-    border-radius: 12px; padding: 20px;
-    display: flex; flex-direction: column; gap: 8px;
+    background: #fff;
+    border-radius: 14px; padding: 22px 24px;
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; overflow: hidden;
+    box-shadow: 0 1px 4px #0000000a, 0 4px 16px #00000008;
   }
-  .card-brand {
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #555;
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
   }
-  .card-title { font-size: 15px; font-weight: 600; color: #e8e8e8; }
-  .card-desc { font-size: 13px; color: #888; line-height: 1.65; flex: 1; }
+  .card-awareness::before  { background: #2244dd; }
+  .card-activation::before { background: #0a8a44; }
+  .card-retention::before  { background: #bb6600; }
+  .card-loyalty::before    { background: #8822cc; }
+
+  .card-brand { font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 900; margin-bottom: 4px; }
+  .card-awareness  .card-brand { color: #2244dd; }
+  .card-activation .card-brand { color: #0a8a44; }
+  .card-retention  .card-brand { color: #bb6600; }
+  .card-loyalty    .card-brand { color: #8822cc; }
+
+  .card-title { font-size: 22px; font-weight: 800; margin-bottom: 14px; line-height: 1.2; color: #111; }
+
+  .card-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 16px; }
+  .card-bullets li {
+    font-size: 14.5px; color: #444; line-height: 1.5;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .card-bullets li .dot {
+    flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
+    margin-top: 6px;
+  }
+  .card-awareness  .dot { background: #2244dd; }
+  .card-activation .dot { background: #0a8a44; }
+  .card-retention  .dot { background: #bb6600; }
+  .card-loyalty    .dot { background: #8822cc; }
+
   .card-insight {
-    font-size: 12px; line-height: 1.6;
-    padding: 10px 12px; border-radius: 8px; border-left: 3px solid;
+    font-size: 13.5px; line-height: 1.6;
+    padding: 12px 14px; border-radius: 8px; border-left: 3px solid;
+    font-style: italic;
   }
-  .insight-awareness  { background: #112540; border-color: #4f9cf9; color: #8dc8fb; }
-  .insight-activation { background: #122608; border-color: #8fce3e; color: #b0df6a; }
-  .insight-retention  { background: #261605; border-color: #f4a93b; color: #f8c06a; }
-  .insight-loyalty    { background: #1a1545; border-color: #a89df0; color: #c3baff; }
+  .insight-awareness  { background: #eef1ff; border-color: #2244dd; color: #2244dd; }
+  .insight-activation { background: #edfff5; border-color: #0a8a44; color: #0a7a3a; }
+  .insight-retention  { background: #fff8ee; border-color: #bb6600; color: #995500; }
+  .insight-loyalty    { background: #f8eeff; border-color: #8822cc; color: #7011bb; }
 
   /* ── VERDICT ── */
-  .verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
-  .verdict-box { border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-  .verdict-works { background: #0e2108; border: 1px solid #1e4010; }
-  .verdict-fails { background: #200e0e; border: 1px solid #3d1818; }
-  .verdict-label {
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600;
-  }
-  .verdict-works .verdict-label { color: #6abf40; }
-  .verdict-fails .verdict-label { color: #e05252; }
-  .verdict-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .verdict-list li {
-    font-size: 14px; line-height: 1.5;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .verdict-works .verdict-list li { color: #8fce3e; }
-  .verdict-fails .verdict-list li { color: #e05252; }
-  .verdict-list li .icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+  .verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .verdict-box { border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .verdict-works { background: #edfff5; border: 2px solid #0a8a44; }
+  .verdict-fails  { background: #fff2f2; border: 2px solid #dd3333; }
+  .verdict-label  { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; }
+  .verdict-works .verdict-label { color: #0a8a44; }
+  .verdict-fails  .verdict-label { color: #dd3333; }
+  .verdict-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .verdict-list li { font-size: 16px; line-height: 1.55; display: flex; align-items: flex-start; gap: 10px; color: #222; }
+  .verdict-list li .icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+  .verdict-works .verdict-list li .icon { color: #0a8a44; }
+  .verdict-fails  .verdict-list li .icon { color: #dd3333; }
 
-  /* ── KPI SLIDE ── */
-  .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; flex: 1; }
-  .kpi-card {
-    background: #1c1c1c; border: 1px solid #2a2a2a;
-    border-radius: 12px; padding: 24px;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .kpi-name { font-size: 13px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .kpi-metric { font-size: 22px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
-  .kpi-desc { font-size: 13px; color: #666; line-height: 1.5; }
-
-  /* ── PRINCIPLES ── */
-  .principles { display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: center; }
-  .principle {
-    background: #1c1c1c; border: 1px solid #2a2a2a;
-    border-radius: 10px; padding: 18px 22px;
-    display: flex; align-items: center; gap: 16px;
-  }
-  .principle-num {
-    font-size: 32px; font-weight: 700; opacity: 0.15; flex-shrink: 0;
-    width: 40px; text-align: center;
-  }
-  .principle-text { font-size: 15px; color: #ccc; line-height: 1.5; }
-  .principle-text strong { color: #fff; }
+  .kpi-row { display: flex; align-items: center; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .kpi-label-text { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #333; font-weight: 800; margin-right: 6px; }
+  .kpi-pill { font-size: 13px; padding: 8px 18px; border-radius: 99px; font-weight: 700; color: #fff; }
+  .kpi-awareness  { background: #2244dd; }
+  .kpi-activation { background: #0a8a44; }
+  .kpi-retention  { background: #bb6600; }
+  .kpi-loyalty    { background: #8822cc; }
 
   /* ── CLOSING ── */
-  .closing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
-  .closing-card {
-    border-radius: 10px; padding: 20px;
-    display: flex; flex-direction: column; gap: 8px;
+  .closing-takeaways { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+  .takeaway {
+    background: #f9f9fb; border: 1px solid #e0e0e8; border-radius: 12px;
+    padding: 18px 22px; display: flex; gap: 18px; align-items: flex-start;
   }
-  .closing-awareness  { background: #0d1f33; }
-  .closing-activation { background: #0f1f07; }
-  .closing-retention  { background: #1f1005; }
-  .closing-loyalty    { background: #16103a; }
-  .closing-stage { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-  .closing-awareness  .closing-stage { color: #7bc0fb; }
-  .closing-activation .closing-stage { color: #8fce3e; }
-  .closing-retention  .closing-stage { color: #f4a93b; }
-  .closing-loyalty    .closing-stage { color: #a89df0; }
-  .closing-key { font-size: 13px; color: #bbb; line-height: 1.5; }
+  .takeaway-num { font-size: 13px; font-weight: 800; color: #bbb; flex-shrink: 0; padding-top: 3px; letter-spacing: 0.08em; width: 24px; }
+  .takeaway-text { font-size: 17px; color: #333; line-height: 1.7; }
+  .takeaway-text strong { color: #111; }
 
-  /* ── PROGRESS BAR ── */
-  .progress {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    height: 3px; background: #222;
-  }
-  .progress-bar {
-    height: 100%; background: #4f9cf9;
-    transition: width 0.35s ease;
-  }
+  .closing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+  .closing-card { border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .closing-awareness  { background: #eef1ff; border: 2px solid #2244dd; }
+  .closing-activation { background: #edfff5; border: 2px solid #0a8a44; }
+  .closing-retention  { background: #fff8ee; border: 2px solid #bb6600; }
+  .closing-loyalty    { background: #f8eeff; border: 2px solid #8822cc; }
+  .closing-stage { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800; }
+  .closing-awareness  .closing-stage { color: #2244dd; }
+  .closing-activation .closing-stage { color: #0a8a44; }
+  .closing-retention  .closing-stage { color: #bb6600; }
+  .closing-loyalty    .closing-stage { color: #8822cc; }
+  .closing-key { font-size: 14px; color: #444; line-height: 1.6; }
 
-  /* ── NAVIGATION ── */
-  .nav {
-    position: fixed; bottom: 20px; right: 28px;
-    display: flex; align-items: center; gap: 10px;
-  }
+  /* ── WORKSHOP ── */
+  .slide-workshop { background: #f4f4f6; }
+  .tag-workshop { background: #111; color: #fff; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 18px; border-radius: 99px; font-weight: 800; }
+  .slide-workshop .slide-title { color: #111; }
+  .workshop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
+  .workshop-box { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 1px 4px #0000000a, 0 4px 16px #00000008; }
+  .workshop-box-title { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #999; font-weight: 800; margin-bottom: 16px; }
+  .workshop-task { font-size: 18px; color: #333; line-height: 1.75; }
+  .workshop-task strong { color: #000; }
+  .workshop-stages { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+  .workshop-time { font-size: 14px; color: #777; margin-top: 20px; line-height: 1.6; }
+  .workshop-time strong { color: #333; }
+
+  .workshop-table { width: 100%; border-collapse: collapse; }
+  .workshop-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; font-weight: 800; text-align: left; padding: 0 0 12px 0; border-bottom: 2px solid #eee; }
+  .workshop-table td { font-size: 16px; color: #555; padding: 13px 0; border-bottom: 1px solid #f0f0f2; line-height: 1.55; vertical-align: top; }
+  .workshop-table tr:last-child td { border-bottom: none; }
+  .workshop-table td:first-child { color: #111; font-weight: 700; width: 36%; padding-right: 20px; }
+
+  /* ── PROGRESS ── */
+  .progress { position: fixed; bottom: 0; left: 0; right: 0; height: 3px; background: #e0e0e8; }
+  .progress-bar { height: 100%; background: linear-gradient(90deg, #2244dd, #6c8fff); transition: width 0.3s ease; }
+
+  /* ── NAV ── */
+  .nav { position: fixed; bottom: 18px; right: 26px; display: flex; align-items: center; gap: 8px; }
   .nav-btn {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid #333; background: #1c1c1c;
-    color: #aaa; font-size: 16px; cursor: pointer;
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid #ddd; background: #fff;
+    color: #888; font-size: 15px; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: all 0.15s;
   }
-  .nav-btn:hover { background: #2a2a2a; color: #fff; border-color: #555; }
-  .nav-btn:disabled { opacity: 0.3; cursor: default; }
-  .slide-counter {
-    font-size: 12px; color: #555;
-    min-width: 48px; text-align: center;
-  }
-
-  /* ── KEY HINT ── */
-  .key-hint {
-    position: fixed; bottom: 20px; left: 28px;
-    font-size: 11px; color: #3a3a3a; letter-spacing: 0.06em;
-  }
+  .nav-btn:hover { background: #111; color: #fff; border-color: #111; }
+  .nav-btn:disabled { opacity: 0.25; cursor: default; }
+  .slide-counter { font-size: 11px; color: #aaa; min-width: 44px; text-align: center; }
+  .key-hint { position: fixed; bottom: 18px; left: 26px; font-size: 10px; color: #ccc; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
-
 <div class="deck" id="deck">
 
-  <!-- ═══ SLIDE 1 · COVER ═══ -->
+  <!-- ═══ 1 · COVER ═══ -->
   <div class="slide slide-cover active" data-index="0">
-    <div class="cover-eyebrow">Marketing Strategy · Customer Journey</div>
+    <div class="cover-eyebrow">Class 10 · Marketing Strategy · Customer Journey</div>
     <div class="cover-title">Engagement Strategies <span>by Funnel Stage</span></div>
-    <div class="cover-subtitle">
-      How leading brands win, activate, retain, and turn customers into advocates — and what actually doesn't work.
-    </div>
+    <div class="cover-subtitle">How leading brands win, activate, retain, and turn customers into advocates — and what actually doesn't work.</div>
     <div class="cover-stages">
-      <span class="cover-pill pill-awareness">Awareness</span>
-      <span class="cover-pill pill-activation">Activation</span>
-      <span class="cover-pill pill-retention">Retention</span>
-      <span class="cover-pill pill-loyalty">Loyalty</span>
+      <span class="cover-pill pill-awareness">01 · Awareness</span>
+      <span class="cover-pill pill-activation">02 · Activation</span>
+      <span class="cover-pill pill-retention">03 · Retention</span>
+      <span class="cover-pill pill-loyalty">04 · Loyalty</span>
     </div>
   </div>
 
-  <!-- ═══ SLIDE 2 · AWARENESS SECTION ═══ -->
-  <div class="slide slide-section section-awareness awareness" data-index="1">
+  <!-- ═══ 2 · FRAMING ═══ -->
+  <div class="slide slide-framing" data-index="1">
+    <div class="framing-quote">
+      Most companies know the funnel exists — and still do <em>the exact same thing at every stage.</em>
+      Same email to someone who just found them. Same discount to someone who was never going to leave.
+    </div>
+    <div class="framing-bottom">
+      The question we're answering today: <strong>What does a company actually do at each stage to move the customer forward, keep them around, and turn them into someone who defends the brand?</strong>
+      <br><br>
+      Not in theory. With real examples. What works — and what doesn't. Because the mistakes are just as important as the wins.
+    </div>
+  </div>
+
+  <!-- ═══ 3 · AWARENESS SECTION ═══ -->
+  <div class="slide slide-section section-awareness awareness" data-index="2">
     <div class="section-number">01</div>
     <div class="section-label">Stage 1</div>
     <div class="section-title">Awareness</div>
     <div class="section-question">Does the customer even know I exist?</div>
     <span class="section-goal">Goal: capture attention and be remembered</span>
+    <p class="section-context">
+      Awareness isn't just the brand showing up — it's the customer <strong>noticing</strong> it. And better yet, <strong>remembering</strong> it. Those are two very different things.
+      <br><br>
+      The most common mistake: trying to talk to everyone with the same message — and ending up talking to no one in particular.
+    </p>
   </div>
 
-  <!-- ═══ SLIDE 3 · AWARENESS EXAMPLES ═══ -->
-  <div class="slide slide-content" data-index="2">
+  <!-- ═══ 4 · AWARENESS EXAMPLES ═══ -->
+  <div class="slide slide-content" data-index="3">
     <div class="slide-header">
       <span class="slide-tag tag-awareness">Awareness</span>
       <span class="slide-title">Real-world examples</span>
     </div>
     <div class="cards">
-      <div class="card">
+
+      <div class="card card-awareness">
         <div class="card-brand">Spotify</div>
         <div class="card-title">Spotify Wrapped</div>
-        <div class="card-desc">Turns listening data into a personalized visual story users voluntarily share. The brand pays zero for distribution — the user distributes it for identity.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Turns personal listening data into a shareable visual story — no paid media needed</li>
+          <li><span class="dot"></span>Users share it voluntarily because it says something about <em>who they are</em>, not just what they listen to</li>
+          <li><span class="dot"></span>Distribution cost is zero — the user becomes the channel</li>
+          <li><span class="dot"></span>Generated massive organic reach across platforms every December</li>
+        </ul>
         <div class="card-insight insight-awareness">When content is personal enough, the user becomes your distribution channel.</div>
       </div>
-      <div class="card">
+
+      <div class="card card-awareness">
         <div class="card-brand">Rappi · Colombia</div>
         <div class="card-title">Hyper-local Influencers</div>
-        <div class="card-desc">Activates neighborhood creators in Medellín and Cali showing the app in real everyday contexts — no actors, no studios, just the familiar corner store.</div>
-        <div class="card-insight insight-awareness">Hyper-local awareness converts 2-3× better than mass campaigns because cultural relevance is higher.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Activates neighborhood creators in Medellín and Cali — not macro-influencers in a studio</li>
+          <li><span class="dot"></span>Shows the app in real everyday contexts: their corner, their usual restaurant</li>
+          <li><span class="dot"></span>Cultural relevance makes the message feel personal, not like a national campaign</li>
+          <li><span class="dot"></span>Hyper-local converts 2–3× better than mass awareness</li>
+        </ul>
+        <div class="card-insight insight-awareness">Cultural relevance makes all the difference. People pay more attention to someone who seems to live their same life.</div>
       </div>
-      <div class="card">
+
+      <div class="card card-awareness">
         <div class="card-brand">Duolingo</div>
         <div class="card-title">Mascot as Viral Character</div>
-        <div class="card-desc">The Duo owl became a global meme. Duolingo didn't create it — they adopted, amplified, and turned it into brand voice. Awareness without paid media, generated from culture.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>The Duo owl started as an internet meme — Duolingo didn't create it</li>
+          <li><span class="dot"></span>They adopted it, amplified it, and made it the official brand voice</li>
+          <li><span class="dot"></span>Joined a conversation that already existed instead of trying to interrupt it</li>
+          <li><span class="dot"></span>Result: global awareness with zero paid media spend</li>
+        </ul>
         <div class="card-insight insight-awareness">Participating in popular culture with self-awareness generates organic awareness no budget can replicate.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- ═══ SLIDE 4 · AWARENESS VERDICT ═══ -->
-  <div class="slide slide-content" data-index="3">
+  <!-- ═══ 5 · AWARENESS VERDICT ═══ -->
+  <div class="slide slide-content" data-index="4">
     <div class="slide-header">
       <span class="slide-tag tag-awareness">Awareness</span>
       <span class="slide-title">What works vs. what doesn't</span>
@@ -307,63 +343,95 @@
       <div class="verdict-box verdict-works">
         <div class="verdict-label">What works</div>
         <ul class="verdict-list">
-          <li><span class="icon">✓</span>Personalized content users want to share</li>
-          <li><span class="icon">✓</span>Lookalike audience targeting</li>
-          <li><span class="icon">✓</span>Local cultural context — not generic global messages</li>
-          <li><span class="icon">✓</span>Joining existing conversations, not interrupting them</li>
+          <li><span class="icon">✓</span>Personalized content users want to share — identity-driven, not brand-driven</li>
+          <li><span class="icon">✓</span>Lookalike audience targeting based on existing best customers</li>
+          <li><span class="icon">✓</span>Local cultural context — not the same message for the whole country</li>
+          <li><span class="icon">✓</span>Joining existing conversations, not interrupting them with ads</li>
         </ul>
       </div>
       <div class="verdict-box verdict-fails">
         <div class="verdict-label">What doesn't work</div>
         <ul class="verdict-list">
-          <li><span class="icon">✗</span>Talking to "everyone" with one message</li>
+          <li><span class="icon">✗</span>Talking to "everyone" with one message — ends up talking to no one</li>
           <li><span class="icon">✗</span>Measuring awareness only by paid impressions</li>
-          <li><span class="icon">✗</span>Generic content with no link to the user's life</li>
-          <li><span class="icon">✗</span>Ignoring the user's role as a distribution channel</li>
+          <li><span class="icon">✗</span>Generic content with no connection to the user's actual life</li>
+          <li><span class="icon">✗</span>Ignoring the user's potential role as a distribution channel</li>
         </ul>
       </div>
     </div>
+    <div class="kpi-row">
+      <span class="kpi-label-text">KPIs</span>
+      <span class="kpi-pill kpi-awareness">Organic reach</span>
+      <span class="kpi-pill kpi-awareness">Share of voice</span>
+      <span class="kpi-pill kpi-awareness">Brand recall</span>
+      <span class="kpi-pill kpi-awareness">Share rate</span>
+      <span class="kpi-pill kpi-awareness">Lookalike conversion rate</span>
+    </div>
   </div>
 
-  <!-- ═══ SLIDE 5 · ACTIVATION SECTION ═══ -->
-  <div class="slide slide-section section-activation activation" data-index="4">
+  <!-- ═══ 6 · ACTIVATION SECTION ═══ -->
+  <div class="slide slide-section section-activation activation" data-index="5">
     <div class="section-number">02</div>
     <div class="section-label">Stage 2</div>
     <div class="section-title">Activation</div>
     <div class="section-question">Does the customer try and understand the value?</div>
     <span class="section-goal">Goal: the "aha moment" — the instant value becomes real</span>
+    <p class="section-context">
+      Activation is the stage where most customers are lost. The reason is always the same: <strong>the company puts its own needs before the customer's.</strong>
+      <br><br>
+      The principle: <strong>value comes first. Friction comes after.</strong> Registration is friction — move it to after the aha moment, not before.
+    </p>
   </div>
 
-  <!-- ═══ SLIDE 6 · ACTIVATION EXAMPLES ═══ -->
-  <div class="slide slide-content" data-index="5">
+  <!-- ═══ 7 · ACTIVATION EXAMPLES ═══ -->
+  <div class="slide slide-content" data-index="6">
     <div class="slide-header">
       <span class="slide-tag tag-activation">Activation</span>
       <span class="slide-title">Real-world examples</span>
     </div>
     <div class="cards">
-      <div class="card">
+
+      <div class="card card-activation">
         <div class="card-brand">Duolingo</div>
         <div class="card-title">Value before sign-up</div>
-        <div class="card-desc">Drops you into a lesson before asking you to create an account. The first exercise is short and satisfying — you feel the value before committing. Sign-up comes after the "aha".</div>
-        <div class="card-insight insight-activation">Remove all friction before the first moment of value. Registration is friction — put it after, not before.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Drops you into a real lesson before asking you to create an account</li>
+          <li><span class="dot"></span>First exercise: under 1 minute, visual, satisfying — you feel like you learned something</li>
+          <li><span class="dot"></span>Registration comes after the aha moment, not before</li>
+          <li><span class="dot"></span>This shift dramatically reduces drop-off before signup</li>
+        </ul>
+        <div class="card-insight insight-activation">The registration didn't disappear — it just moved. That small shift changes everything.</div>
       </div>
-      <div class="card">
+
+      <div class="card card-activation">
         <div class="card-brand">Notion</div>
         <div class="card-title">Templates as activation</div>
-        <div class="card-desc">Instead of a blank page, dozens of ready-made templates from day one. The user feels immediate productivity before understanding how the tool actually works.</div>
-        <div class="card-insight insight-activation">Activation accelerates when the user sees a concrete result — not when they read a feature list.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Instead of a blank page (intimidating), dozens of ready-to-use templates from day one</li>
+          <li><span class="dot"></span>Click a template → 30 seconds later you have something working</li>
+          <li><span class="dot"></span>User feels concrete productivity before understanding how the tool works</li>
+          <li><span class="dot"></span>Avoids the classic mistake: a long tutorial that explains instead of demonstrates</li>
+        </ul>
+        <div class="card-insight insight-activation">Nobody wants to read how something works. Everyone wants to feel like they're already using it.</div>
       </div>
-      <div class="card">
+
+      <div class="card card-activation">
         <div class="card-brand">Nu (Nubank) · Latam</div>
         <div class="card-title">Gamified onboarding</div>
-        <div class="card-desc">Gamifies banking onboarding with a progress bar and celebration at each step. Applying for a card feels like a personal achievement, not a bureaucratic form.</div>
-        <div class="card-insight insight-activation">The perception of progress triggers the impulse to finish — users complete what they've already started.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Turned the credit card application into a game: progress bar + celebration at each step</li>
+          <li><span class="dot"></span>Applying feels like a personal achievement, not a bureaucratic errand</li>
+          <li><span class="dot"></span>Uses the psychological principle of progress: we want to finish what we started</li>
+          <li><span class="dot"></span>Pulled this off in banking — historically one of the worst sectors for activation</li>
+        </ul>
+        <div class="card-insight insight-activation">The perception of progress triggers the impulse to complete — users finish what they've already started.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- ═══ SLIDE 7 · ACTIVATION VERDICT ═══ -->
-  <div class="slide slide-content" data-index="6">
+  <!-- ═══ 8 · ACTIVATION VERDICT ═══ -->
+  <div class="slide slide-content" data-index="7">
     <div class="slide-header">
       <span class="slide-tag tag-activation">Activation</span>
       <span class="slide-title">What works vs. what doesn't</span>
@@ -374,7 +442,7 @@
         <ul class="verdict-list">
           <li><span class="icon">✓</span>Show value before asking for data or registration</li>
           <li><span class="icon">✓</span>Onboarding adapted to the declared profile or use case</li>
-          <li><span class="icon">✓</span>Visible progress — the user knows where they are and what's left</li>
+          <li><span class="icon">✓</span>Visible progress — user knows where they are and what's left</li>
           <li><span class="icon">✓</span>First concrete result in under 5 minutes</li>
         </ul>
       </div>
@@ -388,47 +456,78 @@
         </ul>
       </div>
     </div>
+    <div class="kpi-row">
+      <span class="kpi-label-text">KPIs</span>
+      <span class="kpi-pill kpi-activation">Time to first value</span>
+      <span class="kpi-pill kpi-activation">Activation D1 / D7</span>
+      <span class="kpi-pill kpi-activation">Onboarding completion rate</span>
+      <span class="kpi-pill kpi-activation">Drop-off by step</span>
+    </div>
   </div>
 
-  <!-- ═══ SLIDE 8 · RETENTION SECTION ═══ -->
-  <div class="slide slide-section section-retention retention" data-index="7">
+  <!-- ═══ 9 · RETENTION SECTION ═══ -->
+  <div class="slide slide-section section-retention retention" data-index="8">
     <div class="section-number">03</div>
     <div class="section-label">Stage 3</div>
     <div class="section-title">Retention</div>
     <div class="section-question">Does the customer come back?</div>
     <span class="section-goal">Goal: build habit and reduce churn</span>
+    <p class="section-context">
+      Increasing retention by just <strong>5% can increase profits between 25% and 95%.</strong> Yet most companies spend 5× more acquiring new customers than retaining existing ones.
+      <br><br>
+      Key insight from HBR: <strong>not every customer deserves the same retention effort.</strong> The cost of retaining a customer must be weighed against their CLV.
+    </p>
   </div>
 
-  <!-- ═══ SLIDE 9 · RETENTION EXAMPLES ═══ -->
-  <div class="slide slide-content" data-index="8">
+  <!-- ═══ 10 · RETENTION EXAMPLES ═══ -->
+  <div class="slide slide-content" data-index="9">
     <div class="slide-header">
       <span class="slide-tag tag-retention">Retention</span>
       <span class="slide-title">Real-world examples</span>
     </div>
     <div class="cards">
-      <div class="card">
+
+      <div class="card card-retention">
         <div class="card-brand">Duolingo</div>
         <div class="card-title">Streaks & Loss Aversion</div>
-        <div class="card-desc">The daily streak turns learning into a habit. Break it and the owl reacts. Duolingo intentionally exploits the fact that losing hurts more than winning satisfies.</div>
-        <div class="card-insight insight-retention">Habit-based retention lasts longer than incentive-based. Discounts create customers who wait for deals; habits create users who can't leave.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Daily streak system turns language learning into an automatic habit</li>
+          <li><span class="dot"></span>Uses loss aversion: losing hurts more than gaining satisfies</li>
+          <li><span class="dot"></span>The owl reacting when you break the streak creates real emotional discomfort</li>
+          <li><span class="dot"></span>Users open the app just to protect the streak — even with no intention to learn</li>
+        </ul>
+        <div class="card-insight insight-retention">Habit-based retention is far more durable than discount-based. Discounts create customers who wait for deals; habits create users who can't leave.</div>
       </div>
-      <div class="card">
+
+      <div class="card card-retention">
         <div class="card-brand">Amazon Prime</div>
         <div class="card-title">The ecosystem that makes leaving hard</div>
-        <div class="card-desc">Prime retains with video, music, reading, storage, and bundled discounts. Each extra service the customer uses raises the cost of leaving. Retention is product architecture, not a separate program.</div>
-        <div class="card-insight insight-retention">The right customer retained with the right benefit stack generates exponentially higher CLV. Not everyone deserves the same effort.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Started with free shipping → added video, music, reading, storage, Whole Foods discounts</li>
+          <li><span class="dot"></span>Every extra service raises the switching cost of canceling</li>
+          <li><span class="dot"></span>Canceling Prime means losing 4+ things at once — not just delivery</li>
+          <li><span class="dot"></span>Retains with accumulated real value — not discounts or points</li>
+        </ul>
+        <div class="card-insight insight-retention">The right customer, retained with the right benefit stack, generates exponentially higher CLV. (HBR)</div>
       </div>
-      <div class="card">
+
+      <div class="card card-retention">
         <div class="card-brand">Bancolombia</div>
         <div class="card-title">Proactive Re-engagement</div>
-        <div class="card-desc">Detects inactivity signals (no transactions in 30 days) and triggers personalized outreach based on real financial profile — not generic messages, but concrete relevant offers.</div>
-        <div class="card-insight insight-retention">Re-engagement must happen before the customer decides to leave. Once they start evaluating alternatives, the cost of retaining them rises dramatically.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Detects behavioral signals: no transactions in 30 days, transfers to other banks</li>
+          <li><span class="dot"></span>Triggers personalized outreach based on that customer's real financial profile</li>
+          <li><span class="dot"></span>Not "we miss you" — but a concrete, relevant offer for that specific person</li>
+          <li><span class="dot"></span>Acts before the customer decides to leave, not after</li>
+        </ul>
+        <div class="card-insight insight-retention">Once a customer starts evaluating alternatives, the cost of keeping them rises dramatically — often it's already too late.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- ═══ SLIDE 10 · RETENTION VERDICT ═══ -->
-  <div class="slide slide-content" data-index="9">
+  <!-- ═══ 11 · RETENTION VERDICT ═══ -->
+  <div class="slide slide-content" data-index="10">
     <div class="slide-header">
       <span class="slide-tag tag-retention">Retention</span>
       <span class="slide-title">What works vs. what doesn't</span>
@@ -437,63 +536,95 @@
       <div class="verdict-box verdict-works">
         <div class="verdict-label">What works</div>
         <ul class="verdict-list">
-          <li><span class="icon">✓</span>Designing habits — frequent use cycles built into the product</li>
-          <li><span class="icon">✓</span>Proactive re-engagement based on behavior signals</li>
-          <li><span class="icon">✓</span>Relevant communication based on CLV and customer profile</li>
+          <li><span class="icon">✓</span>Designing habits — frequent use cycles built into the product itself</li>
+          <li><span class="icon">✓</span>Proactive re-engagement triggered by behavioral signals, not a calendar</li>
+          <li><span class="icon">✓</span>Communication tailored to CLV and customer profile — not one-size-fits-all</li>
           <li><span class="icon">✓</span>Raising switching costs with real accumulated value</li>
         </ul>
       </div>
       <div class="verdict-box verdict-fails">
         <div class="verdict-label">What doesn't work</div>
         <ul class="verdict-list">
-          <li><span class="icon">✗</span>Discounts as the primary strategy — trains customers to wait for offers</li>
-          <li><span class="icon">✗</span>Reactive re-engagement — acting only after the customer has left</li>
-          <li><span class="icon">✗</span>Same retention effort for all segments</li>
-          <li><span class="icon">✗</span>Generic notifications that add no real value</li>
+          <li><span class="icon">✗</span>Discounts as primary strategy — trains customers to wait for the next offer</li>
+          <li><span class="icon">✗</span>Reactive re-engagement — acting after the customer has already left</li>
+          <li><span class="icon">✗</span>Same retention effort for all segments regardless of CLV</li>
+          <li><span class="icon">✗</span>Generic push notifications that add no real value</li>
         </ul>
       </div>
     </div>
+    <div class="kpi-row">
+      <span class="kpi-label-text">KPIs</span>
+      <span class="kpi-pill kpi-retention">Churn rate</span>
+      <span class="kpi-pill kpi-retention">DAU / MAU ratio</span>
+      <span class="kpi-pill kpi-retention">Retention D30 / D90</span>
+      <span class="kpi-pill kpi-retention">NPS</span>
+      <span class="kpi-pill kpi-retention">CLV by segment</span>
+    </div>
   </div>
 
-  <!-- ═══ SLIDE 11 · LOYALTY SECTION ═══ -->
-  <div class="slide slide-section section-loyalty loyalty" data-index="10">
+  <!-- ═══ 12 · LOYALTY SECTION ═══ -->
+  <div class="slide slide-section section-loyalty loyalty" data-index="11">
     <div class="section-number">04</div>
     <div class="section-label">Stage 4</div>
     <div class="section-title">Loyalty</div>
     <div class="section-question">Does the customer defend and recommend me?</div>
     <span class="section-goal">Goal: turn customers into active brand advocates</span>
+    <p class="section-context">
+      Kumar's key distinction: <strong>loyalty isn't that the customer buys a lot.</strong> It's that they do things beyond the transaction — recommend, defend, co-create, forgive mistakes.
+      <br><br>
+      A customer who buys a lot but does none of those things isn't loyal — they're <strong>convenient.</strong> And convenient customers leave when something more convenient comes along.
+    </p>
   </div>
 
-  <!-- ═══ SLIDE 12 · LOYALTY EXAMPLES ═══ -->
-  <div class="slide slide-content" data-index="11">
+  <!-- ═══ 13 · LOYALTY EXAMPLES ═══ -->
+  <div class="slide slide-content" data-index="12">
     <div class="slide-header">
       <span class="slide-tag tag-loyalty">Loyalty</span>
       <span class="slide-title">Real-world examples</span>
     </div>
     <div class="cards">
-      <div class="card">
+
+      <div class="card card-loyalty">
         <div class="card-brand">Starbucks</div>
         <div class="card-title">Rewards as identity ecosystem</div>
-        <div class="card-desc">Starbucks Rewards isn't a points program — it's an identity. Drink personalization, stars, birthday gifts, exclusive launches. It combines transaction, personal ritual, and tribal belonging.</div>
-        <div class="card-insight insight-loyalty">The loyal customer doesn't just buy more — they recommend, defend the brand, and forgive mistakes that would drive other customers away.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Three layers: transactional (stars), ritual (personalized drink), belonging (tribe)</li>
+          <li><span class="dot"></span>Users share their birthday gift on Instagram — not for the coffee, but for the identity</li>
+          <li><span class="dot"></span>When someone says "Starbucks is overpriced," loyal customers respond: "but the experience is just different"</li>
+          <li><span class="dot"></span>A loyal customer is worth 3–5× more than a transactional one with the same purchase volume</li>
+        </ul>
+        <div class="card-insight insight-loyalty">The loyal customer doesn't just buy more — they defend the brand and forgive mistakes that would drive others away. (Kumar)</div>
       </div>
-      <div class="card">
+
+      <div class="card card-loyalty">
         <div class="card-brand">Apple</div>
         <div class="card-title">Community as product</div>
-        <div class="card-desc">No traditional points program — an ecosystem that generates identity. "Being an Apple user" carries tribe, aesthetic values, and a shared vocabulary. Loyalty isn't bought with perks, but with accumulated personal meaning.</div>
-        <div class="card-insight insight-loyalty">The most durable loyalty is not rational but identity-based. Customers tolerate premium prices when the brand is part of their self-perception.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>No points program, no loyalty discounts, no frequent-customer tier</li>
+          <li><span class="dot"></span>Built identity instead: shared vocabulary, aesthetic values, a tribe</li>
+          <li><span class="dot"></span>Customers don't compare iPhone vs Android on specs — they ask "am I an iPhone person?"</li>
+          <li><span class="dot"></span>Customers tolerate premium prices because the brand is part of their self-perception</li>
+        </ul>
+        <div class="card-insight insight-loyalty">The most durable loyalty is not rational — it's identity-based. You can't buy that with points. (Kumar: relational value)</div>
       </div>
-      <div class="card">
+
+      <div class="card card-loyalty">
         <div class="card-brand">Tigo · Colombia</div>
         <div class="card-title">Programmatic Advocacy</div>
-        <div class="card-desc">Referral program with mutual incentives built into the app. The referring customer earns real benefits, and so does the new one. Reduces the effort it takes to recommend.</div>
-        <div class="card-insight insight-loyalty">Advocacy doesn't happen spontaneously — it must be facilitated. A good program eliminates the friction of recommending.</div>
+        <ul class="card-bullets">
+          <li><span class="dot"></span>Referral program built directly into the app — minimal effort to recommend</li>
+          <li><span class="dot"></span>Both the referrer and the new customer get real, tangible benefits</li>
+          <li><span class="dot"></span>Removes the awkwardness and friction of "telling a friend about your phone plan"</li>
+          <li><span class="dot"></span>Advocacy doesn't happen spontaneously — the path must be designed</li>
+        </ul>
+        <div class="card-insight insight-loyalty">A good advocacy program doesn't create advocacy — it removes the friction that was blocking it from happening.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- ═══ SLIDE 13 · LOYALTY VERDICT ═══ -->
-  <div class="slide slide-content" data-index="12">
+  <!-- ═══ 14 · LOYALTY VERDICT ═══ -->
+  <div class="slide slide-content" data-index="13">
     <div class="slide-header">
       <span class="slide-tag tag-loyalty">Loyalty</span>
       <span class="slide-title">What works vs. what doesn't</span>
@@ -502,9 +633,9 @@
       <div class="verdict-box verdict-works">
         <div class="verdict-label">What works</div>
         <ul class="verdict-list">
-          <li><span class="icon">✓</span>Experiential loyalty programs, not just transactional ones</li>
+          <li><span class="icon">✓</span>Experiential loyalty programs — not just transactional points</li>
           <li><span class="icon">✓</span>Individual recognition that goes beyond purchase volume</li>
-          <li><span class="icon">✓</span>Facilitating advocacy — reducing the friction of recommending</li>
+          <li><span class="icon">✓</span>Facilitating advocacy — design the path, don't wait for it to happen</li>
           <li><span class="icon">✓</span>Co-creation with the most engaged customers</li>
         </ul>
       </div>
@@ -513,57 +644,100 @@
         <ul class="verdict-list">
           <li><span class="icon">✗</span>Measuring loyalty only by purchase volume</li>
           <li><span class="icon">✗</span>Points programs with no emotional or experiential value</li>
-          <li><span class="icon">✗</span>Treating all "frequent" customers the same</li>
-          <li><span class="icon">✗</span>Expecting advocacy to happen on its own, without enabling it</li>
+          <li><span class="icon">✗</span>Treating all "frequent" customers the same regardless of engagement</li>
+          <li><span class="icon">✗</span>Expecting advocacy to happen spontaneously, without enabling it</li>
         </ul>
       </div>
     </div>
+    <div class="kpi-row">
+      <span class="kpi-label-text">KPIs</span>
+      <span class="kpi-pill kpi-loyalty">NPS</span>
+      <span class="kpi-pill kpi-loyalty">Referral rate</span>
+      <span class="kpi-pill kpi-loyalty">Share of wallet</span>
+      <span class="kpi-pill kpi-loyalty">Customer Engagement Score</span>
+      <span class="kpi-pill kpi-loyalty">Advocacy actions / user</span>
+    </div>
   </div>
 
-  <!-- ═══ SLIDE 14 · CLOSING ═══ -->
-  <div class="slide slide-cover" data-index="13">
+  <!-- ═══ 15 · CLOSING ═══ -->
+  <div class="slide slide-cover" data-index="14">
     <div class="cover-eyebrow">Key Takeaways</div>
     <div class="cover-title">The funnel is one <span>continuous conversation</span></div>
-    <div class="cover-subtitle">Each stage builds on the last. Winning at one without investing in the next is leaking value at every step.</div>
+    <div class="closing-takeaways">
+      <div class="takeaway">
+        <div class="takeaway-num">01</div>
+        <div class="takeaway-text"><strong>Each stage needs a different strategy.</strong> What works in awareness can kill retention. What works in loyalty is useless for activation. There is no universal message or mechanic.</div>
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-num">02</div>
+        <div class="takeaway-text"><strong>Personalization is not putting a name in an email.</strong> It's real relevance — the right message, for the right person, at the right moment, through the right channel.</div>
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-num">03</div>
+        <div class="takeaway-text"><strong>The truly engaged customer is worth far more than any transactional metric.</strong> Don't measure them only in sales — measure them in what they do for the brand when nobody is paying them to. <em style="color:#333">(Kumar)</em></div>
+      </div>
+    </div>
     <div class="closing-grid">
-      <div class="closing-card closing-awareness">
-        <div class="closing-stage">Awareness</div>
-        <div class="closing-key">Make the user your distribution channel — personalization is more powerful than media spend.</div>
+      <div class="closing-card closing-awareness"><div class="closing-stage">Awareness</div><div class="closing-key">Make the user your distribution channel — personalization beats media spend.</div></div>
+      <div class="closing-card closing-activation"><div class="closing-stage">Activation</div><div class="closing-key">Deliver the aha moment first. Every second of friction before value is a lost user.</div></div>
+      <div class="closing-card closing-retention"><div class="closing-stage">Retention</div><div class="closing-key">Design habits, not discounts. Re-engage proactively — before they look elsewhere.</div></div>
+      <div class="closing-card closing-loyalty"><div class="closing-stage">Loyalty</div><div class="closing-key">Build identity, not points. Advocacy won't happen on its own — design the path.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ 16 · WORKSHOP ═══ -->
+  <div class="slide slide-workshop" data-index="15">
+    <div class="slide-header">
+      <span class="tag-workshop">Workshop</span>
+      <span class="slide-title">Group activity — 30 min</span>
+    </div>
+    <div class="workshop-grid">
+      <div class="workshop-box">
+        <div class="workshop-box-title">Task</div>
+        <div class="workshop-task">
+          In groups of <strong>3–4</strong>, choose a <strong>Colombian or Latin American brand</strong> everyone in the group knows well.
+          <br><br>
+          For each funnel stage, design one complete engagement strategy using the framework on the right.
+        </div>
+        <div class="workshop-stages">
+          <span style="padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;background:#1e3bcc;color:#fff;">Awareness</span>
+          <span style="padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;background:#0a8a44;color:#fff;">Activation</span>
+          <span style="padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;background:#bb6600;color:#fff;">Retention</span>
+          <span style="padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;background:#8822cc;color:#fff;">Loyalty</span>
+        </div>
+        <div class="workshop-time">
+          <strong>Presentation:</strong> each group presents their strongest stage — 3 min per group, then the class comments.
+        </div>
       </div>
-      <div class="closing-card closing-activation">
-        <div class="closing-stage">Activation</div>
-        <div class="closing-key">Deliver the "aha moment" first. Every second of friction before value is a lost user.</div>
-      </div>
-      <div class="closing-card closing-retention">
-        <div class="closing-stage">Retention</div>
-        <div class="closing-key">Design habits, not discounts. Re-engage proactively — before they start looking elsewhere.</div>
-      </div>
-      <div class="closing-card closing-loyalty">
-        <div class="closing-stage">Loyalty</div>
-        <div class="closing-key">Build identity, not points. Make advocating easy — advocacy doesn't happen on its own.</div>
+      <div class="workshop-box">
+        <div class="workshop-box-title">For each stage, define</div>
+        <table class="workshop-table">
+          <thead><tr><th>Element</th><th>What to define</th></tr></thead>
+          <tbody>
+            <tr><td>Action</td><td>One specific engagement action — concrete, not generic</td></tr>
+            <tr><td>Channel</td><td>Where and how it reaches the customer</td></tr>
+            <tr><td>Personalization</td><td>How it would be tailored to the individual</td></tr>
+            <tr><td>KPI</td><td>One metric to measure success at that stage</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-</div><!-- /deck -->
-
-<!-- PROGRESS -->
-<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-
-<!-- NAV -->
-<div class="nav">
-  <button class="nav-btn" id="btnPrev" onclick="navigate(-1)" disabled>‹</button>
-  <span class="slide-counter" id="counter">1 / 14</span>
-  <button class="nav-btn" id="btnNext" onclick="navigate(1)">›</button>
 </div>
 
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<div class="nav">
+  <button class="nav-btn" id="btnPrev" onclick="navigate(-1)" disabled>‹</button>
+  <span class="slide-counter" id="counter">1 / 16</span>
+  <button class="nav-btn" id="btnNext" onclick="navigate(1)">›</button>
+</div>
 <div class="key-hint">← → to navigate · Space to advance</div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   let current = 0;
-
   function goTo(n) {
     slides[current].classList.remove('active');
     current = Math.max(0, Math.min(n, total - 1));
@@ -573,14 +747,11 @@
     document.getElementById('btnPrev').disabled = current === 0;
     document.getElementById('btnNext').disabled = current === total - 1;
   }
-
   function navigate(dir) { goTo(current + dir); }
-
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); navigate(1); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); navigate(-1); }
   });
-
   goTo(0);
 </script>
 </body>
